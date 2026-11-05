@@ -3,3 +3,6 @@ __pycache__/
 shopping_app.db
 shopping_app.db-shm
 shopping_app.db-wal
+*.db
+*.db-shm
+*.db-wal

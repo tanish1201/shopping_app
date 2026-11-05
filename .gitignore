@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+shopping_app.db
+shopping_app.db-shm
+shopping_app.db-wal

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f4">
+    <title>Market - Everyday goods, made simple</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Market home">
+          <span class="brand-mark" aria-hidden="true">m</span>
+          <span>market<span class="brand-period">.</span></span>
+        </a>
+        <div id="account-bar" class="account-bar" hidden>
+          <span class="online-dot" aria-hidden="true"></span>
+          <span id="account-name"></span>
+          <button id="logout-button" class="text-button" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="auth-view" class="auth-layout">
+          <div class="auth-intro">
+            <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE MORE LOCAL</p>
+            <h1>Good things,<br><em>in your corner.</em></h1>
+            <p class="intro-copy">
+              Find everyday favourites, keep your basket handy, and check out
+              whenever you are ready.
+            </p>
+            <div class="intro-note">
+              <span class="note-icon" aria-hidden="true">✳</span>
+              <span>A small shop with a thoughtful selection.</span>
+            </div>
+          </div>
+
+          <section class="auth-card" aria-labelledby="auth-title">
+            <div class="auth-card-top">
+              <p class="eyebrow">YOUR MARKET ACCOUNT</p>
+              <span class="auth-spark" aria-hidden="true">✳</span>
+            </div>
+            <h2 id="auth-title">Welcome back</h2>
+            <p id="auth-description" class="muted">Sign in to pick up where you left off.</p>
+            <form id="auth-form">
+              <label for="username">Username</label>
+              <input id="username" name="username" autocomplete="username" required>
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password"
+                     autocomplete="current-password" required>
+              <p id="auth-error" class="form-error" role="alert" hidden></p>
+              <button id="auth-submit" class="button button-dark button-wide" type="submit">
+                Sign in <span aria-hidden="true">→</span>
+              </button>
+            </form>
+            <p class="auth-switch">
+              <span id="auth-switch-copy">New around here?</span>
+              <button id="auth-mode-button" class="link-button" type="button">Create an account</button>
+            </p>
+          </section>
+        </section>
+
+        <section id="shop-view" hidden>
+          <section class="welcome-banner">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEIGHBOURHOOD MARKET</p>
+              <h1>A good day to find<br><em>something lovely.</em></h1>
+              <p class="banner-copy">Thoughtful picks for the everyday.</p>
+            </div>
+            <div class="banner-art" aria-hidden="true">
+              <div class="sun-disc"></div>
+              <div class="art-leaf leaf-one"></div>
+              <div class="art-leaf leaf-two"></div>
+              <div class="art-vase"></div>
+              <span class="art-star">✳</span>
+            </div>
+          </section>
+
+          <nav class="main-nav" aria-label="Shopping sections">
+            <button class="nav-button active" data-panel="products-panel" type="button">Shop</button>
+            <button class="nav-button" data-panel="cart-panel" type="button">
+              Your bag <span id="cart-count" class="count-pill">0</span>
+            </button>
+            <button class="nav-button" data-panel="orders-panel" type="button">Orders</button>
+            <button class="nav-button" data-panel="insights-panel" type="button">Insights</button>
+            <button class="nav-button" data-panel="activity-panel" type="button">Activity</button>
+          </nav>
+
+          <section id="products-panel" class="content-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">THE GOOD STUFF</p>
+                <h2>Shop the collection</h2>
+              </div>
+              <label class="filter-label" for="category-filter">
+                <span>Filter</span>
+                <select id="category-filter" aria-label="Filter products by category">
+                  <option value="">All products</option>
+                </select>
+              </label>
+            </div>
+            <p id="catalogue-message" class="muted" role="status"></p>
+            <div id="product-grid" class="product-grid"></div>
+          </section>
+
+          <section id="cart-panel" class="content-panel" hidden>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SAVED FOR YOU</p>
+                <h2>Your bag</h2>
+              </div>
+            </div>
+            <div id="cart-content"></div>
+          </section>
+
+          <section id="orders-panel" class="content-panel" hidden>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">THE GOOD STUFF, AGAIN</p>
+                <h2>Your orders</h2>
+              </div>
+            </div>
+            <div id="orders-content"></div>
+          </section>
+
+          <section id="insights-panel" class="content-panel" hidden>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">A LOOK AT WHAT'S POPULAR</p>
+                <h2>Purchase insights</h2>
+              </div>
+            </div>
+            <p class="muted insights-description">
+              Completed orders grouped by product price. Frequency counts how
+              many distinct orders included a product at that price.
+            </p>
+            <div id="insights-content"></div>
+          </section>
+
+          <section id="activity-panel" class="content-panel" hidden>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">YOUR MARKET JOURNAL</p>
+                <h2>Account activity</h2>
+              </div>
+            </div>
+            <div id="activity-content"></div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span class="footer-brand">market<span class="brand-period">.</span></span>
+        <span>Good things, close to home.</span>
+      </footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
